@@ -47,7 +47,7 @@ const Contact = () => {
               href="mailto:hello@HYPERJUMP.com"
               className=" text-2xl font-light hover:text-stone-300 transition-colors"
             >
-              HyperJump0101@gmail.com
+              jabajnldz.dev@gmail.com
             </a>
           </div>
           <div>
