@@ -47,8 +47,16 @@ const Contact = () => {
               href="mailto:hello@HYPERJUMP.com"
               className=" text-2xl font-light hover:text-stone-300 transition-colors"
             >
-              jabajnldz.dev@gmail.com
+              HyperJump211@gmail.com
             </a>
+          </div>
+          <div>
+            <h2 className="text-stone-400 text-sm uppercase tracking-widest mb-4 font-semibold">
+              Phone
+            </h2>
+            <span className=" text-2xl font-light hover:text-stone-300 transition-colors">
+              +995 595 33 93 91
+            </span>
           </div>
 
           <div>
