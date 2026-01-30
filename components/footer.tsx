@@ -14,7 +14,7 @@ const Footer = () => {
           <h2 className="font-(family-name:--font-instrument-serif) italic text-4xl text-white mb-6">
             HYPERJUMP
           </h2>
-          <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
+          <p className="text-[#c0c0c0] text-sm leading-relaxed max-w-xs">
             Crafting digital flagships that bridge the gap between human
             intuition and technical excellence. Available for worldwide
             collaborations in 2026.
@@ -25,44 +25,41 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-24">
           {/* Column 1: Sitemap */}
           <div className="flex flex-col gap-6">
-            <span className="text-[10px] uppercase font-mono text-zinc-600 tracking-[0.3em]">
+            <span className="text-[10px] uppercase font-mono text-[#c0c0c0]/50 tracking-[0.3em]">
               Sitemap
             </span>
-            <ul className="flex flex-col gap-3 text-sm text-zinc-400">
-              {["Work", "Expertise", "Journal", "Contact"].map((item) => (
-                <li
-                  key={item}
-                  className="hover:text-white transition-colors cursor-pointer w-fit"
-                >
-                  {item}
-                </li>
-              ))}
+            <ul className="flex flex-col gap-3 text-sm text-[#c0c0c0]">
+              <li className="hover:text-white transition-colors cursor-pointer w-fit">
+                <a href="#work">Work</a>
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer w-fit">
+                <Link href="/contact">Contact</Link>
+              </li>
             </ul>
           </div>
 
           {/* Column 2: Socials */}
           <div className="flex flex-col gap-6">
-            <span className="text-[10px] uppercase font-mono text-zinc-600 tracking-[0.3em]">
+            <span className="text-[10px] text-[#c0c0c0]/50 uppercase font-mono tracking-[0.3em]">
               Socials
             </span>
-            <ul className="flex flex-col gap-3 text-sm text-zinc-400">
-              {["Instagram", "Awwwards"].map((item) => (
-                <li
-                  key={item}
-                  className="hover:text-white transition-colors cursor-pointer w-fit"
-                >
-                  {item}
-                </li>
-              ))}
+            <ul className="flex flex-col gap-3 text-sm text-[#c0c0c0]">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/hyperjumpweb/"
+                className="hover:text-white transition-colors cursor-pointer w-fit"
+              >
+                Instagram
+              </Link>
             </ul>
           </div>
 
           {/* Column 3: Legal (Hidden on small mobile if needed) */}
           <div className="flex flex-col gap-6">
-            <span className="text-[10px] uppercase font-mono text-zinc-600 tracking-[0.3em]">
+            <span className="text-[10px] uppercase font-mono text-[#c0c0c0]/50 tracking-[0.3em]">
               Legal
             </span>
-            <ul className="flex flex-col gap-3 text-sm text-zinc-400">
+            <ul className="flex flex-col gap-3 text-sm text-[#c0c0c0]">
               {["Privacy", "Terms", "Cookies"].map((item) => (
                 <li
                   key={item}
@@ -79,17 +76,14 @@ const Footer = () => {
       {/* Massive Background Brand Text (The "Aesthetic" Touch) */}
       <div className="relative h-24 md:h-48 flex items-center justify-center select-none pointer-events-none">
         <h2 className="text-[15vw] font-(family-name:--font-instrument-serif) italic text-white/[0.03] leading-none translate-y-1/4">
-          HYPERJUMP Studio
+          HYPERJUMP
         </h2>
       </div>
 
       {/* Bottom Section */}
       <div className="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
-            System Operational — 2026
-          </p>
+          <div className="w-2 h-2 rounded-full bg-[#c0c0c0] animate-pulse" />
         </div>
 
         <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">

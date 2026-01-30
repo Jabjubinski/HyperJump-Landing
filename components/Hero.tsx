@@ -67,7 +67,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-white text-5xl md:text-7xl lg:text-9xl leading-[0.85] tracking-tight">
-            WEBSITES THAT BREATH <br />
+            WEBSITES THAT BREATHE <br />
             <span className="text-2xl tracking-wide">
               BUILDING DIGITAL PRODUCTS PEOPLE LOVE TO USE
             </span>
