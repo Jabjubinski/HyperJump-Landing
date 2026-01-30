@@ -9,33 +9,33 @@ import {
   useSpring,
   useMotionValue,
 } from "framer-motion";
-import { ArrowUpRight } from "lucide-react"; // More "premium" feel than MoveRight
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    id: "01",
-    title: "Shop",
-    category: "High-End eCommerce",
+    id: "verve",
+    title: "Verve",
+    category: "Avant-Garde Atelier",
     year: "2026",
-    image: "/websites/blacksugar.png", // Use strings for cleaner mapping
-    description: "Increasing conversion by 40% through immersive storytelling.",
+    // Swapped local image for a working Unsplash URL (Minimalist Fashion)
+    image:
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop",
+    description:
+      "A digital flagship for a minimalist luxury fashion house, focusing on materiality and architectural form.",
+    url: "https://verve-eighteen.vercel.app/",
   },
   {
     id: "02",
-    title: "Cafe Menu",
+    title: "La Crosta",
     category: "Culinary Experience",
     year: "2026",
-    image: "/websites/la-crosta.png",
-    description: "A digital dining room designed for high-intent reservations.",
+    // Swapped local image for a working Unsplash URL (Texture/Food)
+    image:
+      "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=1200&auto=format&fit=crop",
+    description:
+      "A digital dining menu designed for a modern artisanal pizzeria.",
+    url: "#",
   },
-  // {
-  //   id: "03",
-  //   title: "The Challenge",
-  //   category: "SaaS Product",
-  //   year: "2026",
-  //   image: "/websites/blacksugar.png",
-  //   description: "Visualizing complex data into a seamless user journey.",
-  // },
 ];
 
 const CaseStudies = () => {
@@ -99,8 +99,11 @@ const CaseStudies = () => {
           >
             {projects.map((project, index) => (
               <Link
-                href={`/work/${project.id}`}
+                // FIXED: Uses the 'url' property from the object instead of hardcoded '/work/'
+                href={project.url}
                 key={project.id}
+                // Optional: Opens external links in new tab
+                target={project.url.startsWith("http") ? "_blank" : "_self"}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="group relative py-12 border-b border-zinc-200 flex flex-col md:flex-row md:items-center justify-between transition-opacity duration-500"
@@ -155,6 +158,7 @@ const CaseStudies = () => {
                       fill
                       alt="Preview"
                       className="object-cover"
+                      unoptimized
                     />
                     {/* Glassmorphism label on the image */}
                     <div className="absolute bottom-6 left-6 right-6 p-4 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg">
