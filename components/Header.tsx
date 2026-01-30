@@ -128,12 +128,12 @@ const Header = () => {
                 <div className="pt-4 md:pt-8">
                   <p className="mb-2 text-zinc-400">Socials</p>
                   <ul className="flex gap-4 md:block md:space-y-1 lowercase">
-                    <li className="hover:text-white transition-colors cursor-pointer">
+                    <Link
+                      href="https://www.instagram.com/hyperjumpweb/"
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
                       Instagram
-                    </li>
-                    <li className="hover:text-white transition-colors cursor-pointer">
-                      LinkedIn
-                    </li>
+                    </Link>
                   </ul>
                 </div>
               </div>

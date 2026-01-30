@@ -46,16 +46,14 @@ const Footer = () => {
               Socials
             </span>
             <ul className="flex flex-col gap-3 text-sm text-zinc-400">
-              {["Instagram", "Twitter / X", "LinkedIn", "Awwwards"].map(
-                (item) => (
-                  <li
-                    key={item}
-                    className="hover:text-white transition-colors cursor-pointer w-fit"
-                  >
-                    {item}
-                  </li>
-                ),
-              )}
+              {["Instagram", "Awwwards"].map((item) => (
+                <li
+                  key={item}
+                  className="hover:text-white transition-colors cursor-pointer w-fit"
+                >
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
 
