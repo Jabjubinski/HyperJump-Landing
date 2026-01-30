@@ -6,6 +6,7 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 import Link from "next/link";
 
 import LightPillar from "./LightPillar";
+import Beams from "./Beams";
 
 const Hero = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -45,19 +46,15 @@ const Hero = () => {
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-dvh overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
-        <LightPillar
-          topColor="pink"
-          bottomColor="#FF9FFC"
-          intensity={1}
-          rotationSpeed={0.3}
-          glowAmount={0.002}
-          pillarWidth={3}
-          pillarHeight={0.4}
-          noiseIntensity={0.5}
-          pillarRotation={45}
-          interactive={false}
-          mixBlendMode="screen"
-          quality="high"
+        <Beams
+          beamWidth={3}
+          beamHeight={30}
+          beamNumber={20}
+          lightColor="#ffffff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={30}
         />
       </div>
 
@@ -69,11 +66,11 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <h1 className="font-mono text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-zinc-300 mb-8 border border-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+          <h1 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-zinc-300 mb-8 border border-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
             Digital Craftsmanship
           </h1>
 
-          <p className="text-white text-5xl md:text-7xl lg:text-9xl font-(family-name:--font-instrument-serif) leading-[0.85] tracking-tight">
+          <p className="text-white text-5xl md:text-7xl lg:text-9xl leading-[0.85] tracking-tight">
             WEBSITES THAT BREATH <br />
             <span className="text-2xl tracking-wide">
               BUILDING DIGITAL PRODUCTS PEOPLE LOVE TO USE

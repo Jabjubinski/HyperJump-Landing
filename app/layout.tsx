@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const Instrument = Playfair_Display({
+const Playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400"],
   style: ["normal", "italic"],
@@ -41,10 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${Instrument.className}`}>
+    <html lang="en" className={`${Playfair.className}`}>
       <ReactLenis root>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${Instrument.variable} ${space.variable} antialiased selection:bg-stone-200`}
+          className={`${geistSans.variable} ${geistMono.variable} ${Playfair.variable} ${space.variable} antialiased selection:bg-stone-200`}
         >
           <Header />
           {children}
