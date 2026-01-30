@@ -26,7 +26,7 @@ const projects = [
   },
   {
     id: "02",
-    title: "La Crosta",
+    title: "Cafe",
     category: "Culinary Experience",
     year: "2026",
     // Swapped local image for a working Unsplash URL (Texture/Food)
