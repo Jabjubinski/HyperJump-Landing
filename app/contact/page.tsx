@@ -31,7 +31,7 @@ const Contact = () => {
     <div className="min-h-screen  pt-24 px-6 lg:px-12">
       <div className="max-w-4xl mx-auto">
         <div className="border-b border-stone-200 pb-6 mb-12">
-          <span className="text-stone-500 tracking-widest uppercase text-xs font-sans font-semibold">
+          <span className="tracking-widest uppercase text-xs font-sans font-semibold">
             Get in Touch
           </span>
           <h1 className="tracking-tight text-5xl md:text-7xl  font-light mt-2">
@@ -41,7 +41,7 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-stone-400 text-sm uppercase tracking-widest mb-4 font-semibold">
+            <h2 className="text-[#c0c0c0] text-sm uppercase tracking-widest mb-4 font-semibold">
               Email
             </h2>
             <a
@@ -52,7 +52,7 @@ const Contact = () => {
             </a>
           </div>
           <div>
-            <h2 className="text-stone-400 text-sm uppercase tracking-widest mb-4 font-semibold">
+            <h2 className="text-[#c0c0c0]  text-sm uppercase tracking-widest mb-4 font-semibold">
               Phone
             </h2>
             <span className=" text-2xl font-light hover:text-stone-300 transition-colors">
@@ -61,7 +61,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <h2 className="text-stone-400 text-sm uppercase tracking-widest mb-4 font-semibold">
+            <h2 className="text-[#c0c0c0]  text-sm uppercase tracking-widest mb-4 font-semibold">
               Social
             </h2>
             <div className="flex flex-col gap-3">
@@ -79,32 +79,32 @@ const Contact = () => {
           <h2 className=" text-3xl font-light mb-8">Send us a message</h2>
           <form className="space-y-6">
             <div>
-              <label className="text-stone-400 text-sm uppercase tracking-widest mb-2 block">
+              <label className="text-[#c0c0c0]  text-sm uppercase tracking-widest mb-2 block">
                 Name
               </label>
               <input
                 type="text"
-                className="w-full border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
+                className="w-full border border-[#c0c0c0]/30 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
               />
             </div>
 
             <div>
-              <label className="text-stone-400 text-sm uppercase tracking-widest mb-2 block">
+              <label className="text-[#c0c0c0]  text-sm uppercase tracking-widest mb-2 block">
                 Email
               </label>
               <input
                 type="email"
-                className="w-full  border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
+                className="w-full  border border-[#c0c0c0]/30 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
               />
             </div>
 
             <div>
-              <label className="text-stone-400 text-sm uppercase tracking-widest mb-2 block">
+              <label className="text-[#c0c0c0]  text-sm uppercase tracking-widest mb-2 block">
                 Message
               </label>
               <textarea
                 rows={6}
-                className="w-full  border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors resize-none"
+                className="w-full  border border-[#c0c0c0]/30 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors resize-none"
               />
             </div>
 

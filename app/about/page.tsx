@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div>
+    <div className="py-32">
       <div className="w-full px-6 py-20 lg:py-32 lg:px-12 pt-16.5 h-full gap-8 flex justify-center items-center flex-col text-center">
         <h1 className="text-5xl italic border-b border-stone-200 pb-4">
           We don't just write code <br />
@@ -15,7 +15,7 @@ const About = () => {
           bridge the gap between "it works" and "it's flawless."
         </p>
 
-        <p className="text-xl tracking-wide w-full lg:w-1/2 leading-relaxed text-stone-600">
+        <p className="text-xl tracking-wide w-full lg:w-1/2 leading-relaxed">
           By merging technical rigor with aesthetic precision, we help brands
           make the leap from stagnant to scalable. Whether it's a complex SaaS
           architecture or a high-conversion interface, we don't just launch
