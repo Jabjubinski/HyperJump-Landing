@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 const Contact = () => {
@@ -64,24 +65,12 @@ const Contact = () => {
               Social
             </h2>
             <div className="flex flex-col gap-3">
-              <a
-                href="#"
-                className=" text-2xl font-light hover:text-stone-300 transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="#"
-                className=" text-2xl font-light hover:text-stone-300 transition-colors"
-              >
-                Twitter
-              </a>
-              <a
-                href="#"
+              <Link
+                href="https://www.instagram.com/hyperjumpweb/"
                 className=" text-2xl font-light hover:text-stone-300 transition-colors"
               >
                 Instagram
-              </a>
+              </Link>
             </div>
           </div>
         </div>
