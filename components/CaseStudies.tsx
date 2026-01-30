@@ -24,18 +24,6 @@ const projects = [
       "A digital flagship for a minimalist luxury fashion house, focusing on materiality and architectural form.",
     url: "https://verve-eighteen.vercel.app/",
   },
-  {
-    id: "02",
-    title: "Cafe",
-    category: "Culinary Experience",
-    year: "2026",
-    // Swapped local image for a working Unsplash URL (Texture/Food)
-    image:
-      "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=1200&auto=format&fit=crop",
-    description:
-      "A digital dining menu designed for a modern artisanal pizzeria.",
-    url: "#",
-  },
 ];
 
 const CaseStudies = () => {
