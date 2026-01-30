@@ -7,7 +7,7 @@ import { MoveLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="h-dvh w-full bg-[#121212] flex flex-col items-center justify-center px-6 overflow-hidden relative">
+    <main className="h-dvh w-full flex flex-col items-center justify-center px-6 overflow-hidden relative">
       {/* Visual Hyperjump Effect (Blurred light streaks) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -71,7 +71,7 @@ export default function NotFound() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-4 mx-auto px-8 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest text-[10px] transition-all"
+              className="group flex items-center gap-4 mx-auto px-8 py-4 bg-white text-#191919 rounded-full font-bold uppercase tracking-widest text-[10px] transition-all"
             >
               <MoveLeft
                 size={16}

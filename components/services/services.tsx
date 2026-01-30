@@ -55,7 +55,7 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-[#121212] pt-24 px-6 lg:px-12">
+    <div className="min-h-screen">
       <div className="max-w-6xl mx-auto">
         <div className="border-b border-stone-200 pb-6 mb-12">
           <span className="text-stone-500 tracking-widest uppercase text-xs font-sans font-semibold">
@@ -67,7 +67,7 @@ const Services = () => {
         </div>
 
         <div className="mb-16">
-          <p className="text-stone-400 text-lg leading-relaxed max-w-2xl">
+          <p className="text-white/70 text-lg leading-relaxed max-w-2xl">
             We offer a comprehensive range of digital services to help your
             business thrive in the modern landscape.
           </p>
@@ -81,7 +81,7 @@ const Services = () => {
             >
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
-                  <span className="text-stone-600 text-sm font-mono mb-4 block">
+                  <span className="text-stone-500 text-sm font-mono mb-4 block">
                     {service.number}
                   </span>
                   <h2 className="text-white text-4xl md:text-5xl font-light mb-4 group-hover:translate-x-2 transition-transform duration-300">
@@ -90,7 +90,7 @@ const Services = () => {
                 </div>
 
                 <div className="md:w-2/3">
-                  <p className="text-stone-400 text-lg leading-relaxed mb-6">
+                  <p className="text-white text-lg leading-relaxed mb-6">
                     {service.description}
                   </p>
 
@@ -98,7 +98,7 @@ const Services = () => {
                     {service.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-2 text-stone-500"
+                        className="flex items-center gap-2 text-[#c0c0c0]"
                       >
                         <span className="w-1.5 h-1.5 bg-stone-500 rounded-full" />
                         <span className="text-sm">{feature}</span>
@@ -111,16 +111,16 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-20 bg-[#1a1a1a] rounded-2xl p-12 text-center">
+        <div className="mt-20 bg-[#131313] rounded-2xl p-12 text-center">
           <h2 className="text-white text-3xl md:text-4xl font-light mb-4">
             Need a custom solution?
           </h2>
-          <p className="text-stone-400 mb-8 max-w-xl mx-auto">
+          <p className="text-[#c0c0c0] mb-8 max-w-xl mx-auto">
             Every project is unique. Let's discuss your specific needs and craft
             a tailored approach.
           </p>
           <Link href="/contact">
-            <button className="px-8 py-3 bg-white text-black rounded-2xl font-mono text-sm tracking-wide hover:scale-105 transition-all duration-200">
+            <button className="px-8 py-3 text-[#191919] bg-white rounded-2xl text-sm tracking-wide hover:scale-105 transition-all duration-200">
               Start a Conversation
             </button>
           </Link>

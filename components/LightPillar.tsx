@@ -61,7 +61,7 @@ const LightPillar: React.FC<LightPillarProps> = ({
     const height = container.clientHeight;
 
     const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      /Android|webOS|iPhone|iPad|iPod|#191919Berry|IEMobile|Opera Mini/i.test(
         navigator.userAgent,
       );
     const isLowEndDevice =
@@ -440,7 +440,7 @@ const LightPillar: React.FC<LightPillarProps> = ({
   if (!webGLSupported) {
     return (
       <div
-        className={`w-full h-full absolute top-0 left-0 flex items-center justify-center bg-black/10 text-gray-500 text-sm ${className}`}
+        className={`w-full h-full absolute top-0 left-0 flex items-center justify-center bg-#191919/10 text-gray-500 text-sm ${className}`}
         style={{ mixBlendMode }}
       >
         WebGL not supported

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#121212] pt-24 pb-12 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <footer className="w-full  pt-24 pb-12 px-6 md:px-12 lg:px-24 overflow-hidden">
       {/* Top Section: Branding & Links */}
       <div className="flex flex-col lg:flex-row justify-between gap-16 pb-24 relative z-10">
         {/* Brand Mission */}

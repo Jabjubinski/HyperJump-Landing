@@ -76,9 +76,9 @@ const Header = () => {
             style={{ x: springX, y: springY }}
             onClick={() => setIsOpen(!isOpen)}
             className={clsx(
-              "relative z-[110] w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
+              "relative z-[110] text-black w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
               isOpen
-                ? "bg-white border-white text-black rotate-90"
+                ? "bg-white border-white text-#191919 rotate-90"
                 : "bg-white/10 border-white/20 text-white",
             )}
           >
@@ -117,9 +117,9 @@ const Header = () => {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] as const }}
-            className="fixed inset-0 h-dvh bg-[#0a0a0a] z-[90] flex flex-col md:flex-row overflow-hidden"
+            className="fixed inset-0 h-dvh z-[90] flex flex-col md:flex-row overflow-hidden"
           >
-            <div className="order-2 md:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
+            <div className="order-2 backdrop-blur-md md:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
               <div className="text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] space-y-4">
                 <div className="flex justify-between md:block md:space-y-4">
                   <p>Based in Tbilisi</p>
@@ -139,7 +139,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="order-1 md:order-2 w-full md:w-2/3 flex items-center justify-center md:justify-start p-8 md:pl-20 h-full">
+            <div className="order-1 md:order-2 bg-black w-full md:w-2/3 flex items-center justify-center md:justify-start p-8 md:pl-20 h-full">
               <ul className="flex flex-col gap-2 md:gap-4">
                 {navLinks.map((link, idx) => {
                   const nameLower = link.name.toLowerCase();

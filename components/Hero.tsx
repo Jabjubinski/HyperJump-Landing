@@ -11,11 +11,9 @@ import Beams from "./Beams";
 const Hero = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Use Motion Values for hardware-accelerated performance
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Physics-based springs (no more choppy CSS transitions)
   const springConfig = { damping: 15, stiffness: 150, mass: 0.1 };
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
@@ -30,11 +28,10 @@ const Hero = () => {
     const centerX = left + width / 2;
     const centerY = top + height / 2;
 
-    // The 'pull' distance
     const dx = clientX - centerX;
     const dy = clientY - centerY;
 
-    x.set(dx * 0.35); // Slightly stronger pull for better feel
+    x.set(dx * 0.35);
     y.set(dy * 0.35);
   };
 
@@ -44,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-dvh overflow-hidden bg-black">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Beams
           beamWidth={3}
@@ -58,7 +55,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full flex flex-col justify-center items-center text-center px-6 h-dvh">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +86,7 @@ const Hero = () => {
                 x: springX,
                 y: springY,
               }}
-              className="relative z-10 px-8 py-4 bg-white text-black text-sm font-bold uppercase tracking-widest rounded-full transition-transform duration-300 active:scale-95"
+              className="relative z-10 px-8 py-4 bg-white text-[#191919] text-sm font-bold uppercase font-mono tracking-widest rounded-full transition-transform duration-300 active:scale-95"
               aria-label="Make an inquiry"
             >
               Get in Touch

@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] pt-24 px-6 lg:px-12">
+    <div className="min-h-screen  pt-24 px-6 lg:px-12">
       <div className="max-w-4xl mx-auto">
         <div className="border-b border-stone-200 pb-6 mb-12">
           <span className="text-stone-500 tracking-widest uppercase text-xs font-sans font-semibold">
@@ -75,7 +75,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-[#1a1a1a] rounded-2xl p-8 md:p-12">
+        <div className=" rounded-2xl p-8 md:p-12">
           <h2 className=" text-3xl font-light mb-8">Send us a message</h2>
           <form className="space-y-6">
             <div>
@@ -84,7 +84,7 @@ const Contact = () => {
               </label>
               <input
                 type="text"
-                className="w-full bg-[#121212] border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
+                className="w-full border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
               />
             </div>
 
@@ -94,7 +94,7 @@ const Contact = () => {
               </label>
               <input
                 type="email"
-                className="w-full bg-[#121212] border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
+                className="w-full  border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors"
               />
             </div>
 
@@ -104,7 +104,7 @@ const Contact = () => {
               </label>
               <textarea
                 rows={6}
-                className="w-full bg-[#121212] border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors resize-none"
+                className="w-full  border border-stone-700 rounded-lg px-4 py-3  focus:outline-none focus:border-stone-500 transition-colors resize-none"
               />
             </div>
 
@@ -115,7 +115,7 @@ const Contact = () => {
                 style={{
                   transform: `translate(${position.x}px, ${position.y}px)`,
                 }}
-                className="px-8 py-3 bg-white text-black rounded-2xl font-mono text-sm tracking-wide hover:scale-105 transition-all duration-200"
+                className="px-8 py-3 bg-white text-[#191919] rounded-2xl font-mono text-sm tracking-wide hover:scale-105 transition-all duration-200"
               >
                 Send Message
               </button>

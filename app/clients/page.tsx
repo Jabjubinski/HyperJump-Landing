@@ -11,7 +11,7 @@ const clients = [
 
 const Clients = () => {
   return (
-    <div className="min-h-screen bg-[#121212] pt-24 px-6 lg:px-12">
+    <div className="min-h-screen bg-[#191919] pt-24 px-6 lg:px-12">
       <div className="max-w-6xl mx-auto">
         <div className="border-b border-stone-200 pb-6 mb-12">
           <span className="text-stone-500 tracking-widest uppercase text-xs font-sans font-semibold">
@@ -56,7 +56,7 @@ const Clients = () => {
           <p className="text-stone-400 mb-8">
             Let's discuss how we can help bring your project to life.
           </p>
-          <button className="px-8 py-3 bg-white text-black rounded-2xl font-mono text-sm tracking-wide hover:scale-105 transition-all duration-200">
+          <button className="px-8 py-3 bg-white text-#191919 rounded-2xl font-mono text-sm tracking-wide hover:scale-105 transition-all duration-200">
             Get in Touch
           </button>
         </div>

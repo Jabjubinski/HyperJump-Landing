@@ -2,13 +2,11 @@ const About = () => {
   return (
     <div>
       <div className="w-full px-6 py-20 lg:py-32 lg:px-12 pt-16.5 h-full gap-8 flex justify-center items-center flex-col text-center">
-        {/* The Hook */}
         <h1 className="text-5xl italic border-b border-stone-200 pb-4">
           We don't just write code <br />
           we engineer momentum.
         </h1>
 
-        {/* The Team Intro */}
         <p className="text-xl tracking-wide w-full lg:w-1/2 leading-relaxed">
           <span className="text-5xl font-semibold">H</span>yperJump is a
           specialized collective of four—three veteran engineers and one
@@ -17,7 +15,6 @@ const About = () => {
           bridge the gap between "it works" and "it's flawless."
         </p>
 
-        {/* The Value Prop */}
         <p className="text-xl tracking-wide w-full lg:w-1/2 leading-relaxed text-stone-600">
           By merging technical rigor with aesthetic precision, we help brands
           make the leap from stagnant to scalable. Whether it's a complex SaaS
@@ -25,7 +22,6 @@ const About = () => {
           projects—we propel them forward.
         </p>
 
-        {/* Optional "Speed" Tagline */}
         <div className="mt-4 px-4 py-1 text-xs uppercase tracking-widest font-bold">
           Zero Friction. Maximum Velocity.
         </div>
