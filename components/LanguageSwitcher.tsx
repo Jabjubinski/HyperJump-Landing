@@ -11,7 +11,7 @@ const LanguageSwitcher = () => {
 
   const locales = [
     { id: "en", label: "EN" },
-    { id: "ka", label: "ქარ" },
+    { id: "ka", label: "GEO" },
   ];
 
   const handleSwitch = (newLocale: string) => {

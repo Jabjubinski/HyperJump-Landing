@@ -111,6 +111,9 @@
     "inputMessage": "Message",
     "button": "Send Message"
   },
+  "Bug" :{
+    "text": "The site is under construction so expect bugs"
+  },
   "Index": {
     "title": "HyperJump - web-development agency"
   }
