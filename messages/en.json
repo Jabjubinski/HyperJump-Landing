@@ -1,0 +1,117 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "location": "Based in Tbilisi",
+    "status": "Available for 2026"
+  },
+  "Hero": {
+    "badge": "Digital Craftsmanship",
+    "titleMain": "WEBSITES THAT BREATHE",
+    "titleSub": "BUILDING DIGITAL PRODUCTS PEOPLE LOVE TO USE",
+    "cta": "Get in Touch"
+  },
+  "Projects": {
+    "badge": "Selected Work — 2026",
+    "title": "Digital <br /> Flagships",
+    "description": "We don’t just build websites; we create digital environments that convert casual visitors into brand advocates.",
+    "cta": "Start a Project",
+    "verveTitle": "Verve",
+    "verveCategory": "Avant-Garde Atelier",
+    "verveDesc": "A digital flagship for a minimalist luxury fashion house, focusing on materiality and architectural form.",
+    "caseStudy": "Case Study"
+  },
+  "Marquee": {
+    "workTogether": "LET'S WORK TOGETHER • START YOUR PROJECT • SAY HELLO • GET IN TOUCH •",
+    "availability": "AVAILABLE FOR NEW PROJECTS • 2026 OPENINGS • HIRE US •"
+  },
+
+  "Services": {
+    "badge": "What We Do",
+    "title": "Services",
+    "description": "We offer a comprehensive range of digital services to help your business thrive in the modern landscape.",
+    "ctaTitle": "Need a custom solution?",
+    "ctaDesc": "Every project is unique. Let's discuss your specific needs and craft a tailored approach.",
+    "ctaButton": "Start a Conversation",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "desc": "Custom websites and web applications built with modern technologies and best practices.",
+        "f": [
+          "Responsive Design",
+          "Performance Optimization",
+          "SEO Implementation",
+          "CMS Integration"
+        ]
+      },
+      "brand": {
+        "title": "Brand Identity",
+        "desc": "Comprehensive brand strategy and visual identity design to make your business stand out.",
+        "f": [
+          "Logo Design",
+          "Brand Guidelines",
+          "Typography Selection",
+          "Color Systems"
+        ]
+      },
+      "ecommerce": {
+        "title": "eCommerce Solutions",
+        "desc": "Full-featured online stores designed to convert visitors into customers.",
+        "f": [
+          "Product Catalogs",
+          "Payment Integration",
+          "Inventory Management",
+          "Analytics Setup"
+        ]
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "desc": "User-centered design processes that create intuitive and engaging digital experiences.",
+        "f": [
+          "User Research",
+          "Wireframing",
+          "Prototyping",
+          "Usability Testing"
+        ]
+      }
+    }
+  },
+  "Footer": {
+    "mission": "Crafting digital flagships that bridge the gap between human intuition and technical excellence. Available for worldwide collaborations in 2026.",
+    "sitemap": "Sitemap",
+    "socials": "Socials",
+    "legal": "Legal",
+    "links": {
+      "work": "Work",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    },
+    "copyright": "HYPERJUMP Digital Products. Built for the web."
+  },
+  "About": {
+    "headline": "We don't just write code <br /> we engineer momentum.",
+    "p1": "HyperJump is a specialized collective of four—three veteran engineers and one visionary designer. We realized that the web doesn't need more templates; it needs better engines. We build digital experiences that bridge the gap between \"it works\" and \"it's flawless.\"",
+    "p2": "By merging technical rigor with aesthetic precision, we help brands make the leap from stagnant to scalable. Whether it's a complex SaaS architecture or a high-conversion interface, we don't just launch projects—we propel them forward.",
+    "footer": "Zero Friction. Maximum Velocity."
+  },
+  "Contact": {
+    "badge": "Get in Touch",
+    "title": "Contact",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "socialLabel": "Social",
+    "formTitle": "Send us a message",
+    "inputName": "Name",
+    "inputEmail": "Email",
+    "inputMessage": "Message",
+    "button": "Send Message"
+  },
+  "Index": {
+    "title": "HyperJump - web-development agency"
+  }
+}

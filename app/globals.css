@@ -160,3 +160,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+html[lang="ka"] body {
+  font-family: var(--font-noto-sans), sans-serif;
+}

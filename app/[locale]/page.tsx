@@ -1,11 +1,19 @@
 "use client";
 
+//sections
 import Hero from "@/components/Hero";
 import CaseStudies from "@/components/CaseStudies";
 import Services from "@/components/services/services";
+
+//animations
 import ScrollVelocity from "@/components/ScrollVelocity";
 
+//intl
+import { useTranslations } from "next-intl";
+
 export default function Home() {
+  const scrollT = useTranslations("Marquee");
+
   return (
     <div className="text-white overflow-x-hidden">
       <section id="home" className="relative h-dvh w-full">
@@ -21,14 +29,14 @@ export default function Home() {
           <ScrollVelocity
             className="font-black tracking-tighter"
             numCopies={7}
-            texts={[
-              "LET'S WORK TOGETHER • START YOUR PROJECT • SAY HELLO • GET IN TOUCH •",
-              "AVAILABLE FOR NEW PROJECTS • 2026 OPENINGS • HIRE US •",
-            ]}
+            texts={[scrollT("workTogether"), scrollT("availability")]}
           />
         </div>
 
-        <section id="services" className="w-full px-6 md:px-12 lg:px-24 mb-32">
+        <section
+          id="services"
+          className=" w-full px-6 md:px-12 lg:px-24 mb-32"
+        >
           <Services />
         </section>
       </main>

@@ -5,13 +5,12 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 import Link from "next/link";
 
 import LightPillar from "./LightPillar";
-// import Beams from "./Beams"; // Keep if needed for later
-// import Ballpit from "./Ballpit"; // Keep if needed for later
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("Hero");
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Motion values for the magnetic button effect
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -43,7 +42,6 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden bg-black">
-      {/* 1. Background Visuals (LightPillar) */}
       <div className="absolute inset-0 z-0">
         <LightPillar
           topColor=""
@@ -66,7 +64,6 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      {/* 3. Hero Content Layer */}
       <div className="relative z-10 w-full flex flex-col justify-center items-center text-center px-6 h-dvh">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -76,14 +73,14 @@ const Hero = () => {
         >
           {/* Badge */}
           <h1 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-zinc-300 mb-8 border border-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
-            Digital Craftsmanship
+            {t("badge")}
           </h1>
 
           {/* Headline */}
-          <p className="text-white text-5xl md:text-7xl lg:text-9xl leading-[0.85] tracking-tight font-bold">
-            WEBSITES THAT BREATHE <br />
-            <span className="text-2xl tracking-wide font-normal block mt-4">
-              BUILDING DIGITAL PRODUCTS PEOPLE LOVE TO USE
+          <p className="text-white text-5xl md:text-7xl lg:text-9xl leading-[0.85] tracking-tight font-bold uppercase">
+            {t("titleMain")} <br />
+            <span className="text-xl md:text-2xl tracking-wide font-normal block mt-6 max-w-2xl mx-auto normal-case">
+              {t("titleSub")}
             </span>
           </p>
 
@@ -96,17 +93,11 @@ const Hero = () => {
           >
             <motion.button
               ref={buttonRef}
-              style={{
-                x: springX,
-                y: springY,
-              }}
-              className="relative z-10 px-8 py-4 bg-white text-[#191919] text-sm font-bold uppercase font-mono tracking-widest rounded-full transition-transform duration-300 active:scale-95 shadow-xl"
-              aria-label="Make an inquiry"
+              style={{ x: springX, y: springY }}
+              className="relative z-10 px-10 py-5 bg-white text-[#191919] text-sm font-bold uppercase font-mono tracking-widest rounded-full transition-transform duration-300 active:scale-95 shadow-xl"
             >
-              Get in Touch
+              {t("cta")}
             </motion.button>
-
-            {/* Visual "Pulse" glow effect behind the button on hover */}
             <div className="absolute inset-0 bg-white/30 blur-2xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 -z-10" />
           </Link>
         </motion.div>
@@ -114,5 +105,4 @@ const Hero = () => {
     </div>
   );
 };
-
 export default Hero;

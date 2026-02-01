@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "../app/i18n/routing"; 
 import {
   motion,
   AnimatePresence,
   useSpring,
   useMotionValue,
 } from "framer-motion";
-import { Circle, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -22,7 +24,9 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const t = useTranslations("Navigation");
 
+  // Magnetic Button Logic
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
@@ -42,6 +46,7 @@ const Header = () => {
     mouseY.set(0);
   };
 
+  // Lock scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
@@ -49,6 +54,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 flex justify-between items-center z-[100]">
+        {/* Logo Section */}
         <Link
           href="/"
           className={clsx(
@@ -66,64 +72,78 @@ const Header = () => {
           ))}
         </Link>
 
-        <div
-          onMouseMove={handleMouseMove}
-          onMouseLeave={resetPosition}
-          className="relative"
-        >
-          <motion.button
-            ref={buttonRef}
-            style={{ x: springX, y: springY }}
-            onClick={() => setIsOpen(!isOpen)}
-            className={clsx(
-              "relative z-[110] text-black w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
-              isOpen
-                ? "bg-white border-white text-#191919 rotate-90"
-                : "bg-white/10 border-white/20 text-white",
+        {/* Interaction Hub: Switcher + Menu Button */}
+        <div className="flex items-center gap-4 md:gap-6">
+          <AnimatePresence>
+            {!isOpen && (
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+              >
+                <LanguageSwitcher />
+              </motion.div>
             )}
+          </AnimatePresence>
+
+          <div
+            onMouseMove={handleMouseMove}
+            onMouseLeave={resetPosition}
+            className="relative"
           >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <X size={20} />
-                </motion.div>
-              ) : (
-                <>
+            <motion.button
+              ref={buttonRef}
+              style={{ x: springX, y: springY }}
+              onClick={() => setIsOpen(!isOpen)}
+              className={clsx(
+                "relative z-[110] w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
+                isOpen
+                  ? "bg-white border-white text-black rotate-90"
+                  : "bg-white/10 border-white/20 text-white",
+              )}
+            >
+              <AnimatePresence mode="wait">
+                {isOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <X size={20} />
+                  </motion.div>
+                ) : (
                   <motion.div
                     key="open"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    {/* <Circle size={18} fill="currentColor" /> */}
                     <Menu size={18} fill="currentColor" />
                   </motion.div>
-                </>
-              )}
-            </AnimatePresence>
-          </motion.button>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
         </div>
       </header>
 
+      {/* Fullscreen Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.nav
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] as const }}
-            className="fixed inset-0 h-dvh z-[90] flex flex-col md:flex-row overflow-hidden"
+            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 h-dvh z-[90] flex flex-col md:flex-row overflow-hidden bg-black"
           >
+            {/* Sidebar Info */}
             <div className="order-2 backdrop-blur-md md:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
               <div className="text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] space-y-4">
                 <div className="flex justify-between md:block md:space-y-4">
-                  <p>Based in Tbilisi</p>
-                  <p>Available for 2026</p>
+                  <p>{t("location")}</p>
+                  <p>{t("status")}</p>
                 </div>
                 <div className="pt-4 md:pt-8">
                   <p className="mb-2 text-zinc-400">Socials</p>
@@ -139,10 +159,14 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Main Links */}
             <div className="order-1 md:order-2 bg-black w-full md:w-2/3 flex items-center justify-center md:justify-start p-8 md:pl-20 h-full">
               <ul className="flex flex-col gap-2 md:gap-4">
                 {navLinks.map((link, idx) => {
                   const nameLower = link.name.toLowerCase();
+                  const translatedName = t(nameLower);
+
+                  // Routing Logic
                   const isPageRoute = ["about", "contact"].includes(nameLower);
                   const finalHref = isPageRoute
                     ? link.href
@@ -158,7 +182,7 @@ const Header = () => {
                       transition={{
                         delay: 0.2 + idx * 0.1,
                         duration: 0.8,
-                        ease: [0.22, 1, 0.36, 1] as const,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                     >
                       <Link
@@ -170,7 +194,7 @@ const Header = () => {
                           0{idx + 1}
                         </span>
                         <span className="relative">
-                          {link.name}
+                          {translatedName}
                           <span className="absolute left-0 -bottom-1 md:-bottom-2 w-0 h-0.5 md:h-1 bg-white group-hover:w-full transition-all duration-500" />
                         </span>
                       </Link>
