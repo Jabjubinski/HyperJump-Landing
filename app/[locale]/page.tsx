@@ -45,7 +45,7 @@ export default function Home() {
               onClick={closeNotice}
               className="text-[10px] uppercase tracking-widest font-black border-t border-black/10 pt-4 text-left hover:opacity-50 transition-opacity"
             >
-              [ Acknowledge ]
+              [ {bugT("accept")} ]
             </button>
           </div>
         </div>
