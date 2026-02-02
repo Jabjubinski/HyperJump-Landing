@@ -28,6 +28,16 @@ const CaseStudies = () => {
       description: t("verveDesc"),
       url: "https://verve-eighteen.vercel.app/",
     },
+    {
+      id: "Cafe",
+      title: "Cafe",
+      category: "Restaurants",
+      year: "2026",
+      image:
+        "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: t("verveDesc"),
+      url: "https://cafe-hyperjump.vercel.app/",
+    },
   ];
 
   const mouseX = useMotionValue(0);
