@@ -5,14 +5,30 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function Cursor() {
   const [cursorType, setCursorType] = useState("default");
+  const [isMobile, setIsMobile] = useState(true);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 250 };
+  const springConfig = {
+    stiffness: 1000,
+    damping: 50,
+    mass: 0.1
+  };
   const sx = useSpring(mouseX, springConfig);
   const sy = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    const checkTouch = () => {
+      const isTouch =
+        window.matchMedia("(pointer: coarse)").matches ||
+        "ontouchstart" in window;
+      setIsMobile(isTouch);
+    };
+
+    checkTouch();
+
+    if (isMobile) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -20,12 +36,8 @@ export default function Cursor() {
 
     const handleHover = () => {
       const hoverables = document.querySelectorAll("button, a, .project-card");
-
       hoverables.forEach((el) => {
-        el.addEventListener("mouseenter", () => {
-          if (el.classList.contains("project-card")) setCursorType("project");
-          else setCursorType("hover");
-        });
+        el.addEventListener("mouseenter", () => setCursorType("hover"));
         el.addEventListener("mouseleave", () => setCursorType("default"));
       });
     };
@@ -34,7 +46,9 @@ export default function Cursor() {
     handleHover();
 
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [isMobile, mouseX, mouseY]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div

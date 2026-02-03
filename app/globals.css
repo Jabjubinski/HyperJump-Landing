@@ -190,3 +190,42 @@ html[lang="ka"] .hero-header {
 @utility slant-r {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
+
+/* @media (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+
+  * {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  }
+} */
+
+/* @media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+} */
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] overflow-x-hidden;
+  }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998; 
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("https://res.cloudinary.com/du9xe9asq/image/upload/v1713444004/noise_f7v5on.png");
+}
+
+
+body:has(.fixed.inset-0.z-\[9999\]) {
+  overflow: hidden !important;
+}
+

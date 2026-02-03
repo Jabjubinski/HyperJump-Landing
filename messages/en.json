@@ -115,6 +115,20 @@
     "text": "The site is under construction so expect bugs",
     "accept": "Acknowledge"
   },
+  "Capsule": {
+    "label": "Initiate_Contact",
+    "status": "Direct_Channel_Active",
+    "transmission": "Transmission",
+    "identity": "Identity",
+    "frequency": "Frequency",
+    "message": "Message",
+    "send": "Send_Signal"
+  },
+  "Preloader": {
+    "status": "Systems Loading",
+    "engine": "Engine Status",
+    "init": "SPOOLING_MOMENTUM..."
+  },
   "Index": {
     "title": "HyperJump - web-development agency"
   }

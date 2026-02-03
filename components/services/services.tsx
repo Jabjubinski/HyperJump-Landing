@@ -1,91 +1,113 @@
 "use client";
 
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
-const Services = () => {
-  const t = useTranslations("Services");
-
-  const servicesData = [
-    { number: "01", key: "web" },
-    { number: "02", key: "brand" },
-    { number: "03", key: "ecommerce" },
-    { number: "04", key: "uiux" },
-  ];
+const ServiceItem = ({ id, item, index }: { id: string, item: any, index: number }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="border-b border-stone-800 pb-6 mb-12">
-          <span className="text-stone-500 tracking-widest uppercase text-xs font-sans font-semibold">
-            {t("badge")}
-          </span>
-          <h1 className="tracking-tight text-5xl md:text-7xl text-white font-light mt-2">
-            {t("title")}
-          </h1>
+    <motion.div
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+      className="border-b border-white/10 py-10 group cursor-pointer relative"
+    >
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-8">
+          <span className="font-mono text-xs text-zinc-500">0{index + 1}</span>
+          <h3 className="text-4xl md:text-6xl font-light tracking-tighter group-hover:translate-x-4 transition-transform duration-500">
+            {item.title}
+          </h3>
         </div>
+        
+        {/* Modern Arrow Indicator */}
+        <motion.div 
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          className="hidden md:block text-3xl font-thin text-zinc-500"
+        >
+          +
+        </motion.div>
+      </div>
 
-        <div className="mb-16">
-          <p className="text-white/70 text-lg leading-relaxed max-w-2xl">
-            {t("description")}
-          </p>
-        </div>
-
-        <div className="space-y-12">
-          {servicesData.map((service, index) => (
-            <div
-              key={index}
-              className="border-b border-stone-800 pb-12 last:border-none group"
-            >
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3">
-                  <span className="text-stone-500 text-sm font-mono mb-4 block">
-                    {service.number}
-                  </span>
-                  <h2 className="text-white text-4xl md:text-5xl font-light mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    {t(`items.${service.key}.title`)}
-                  </h2>
-                </div>
-
-                <div className="md:w-2/3">
-                  <p className="text-white text-lg leading-relaxed mb-6">
-                    {t(`items.${service.key}.desc`)}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    {t
-                      .raw(`items.${service.key}.f`)
-                      .map((feature: string, idx: number) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-2 text-[#c0c0c0]"
-                        >
-                          <span className="w-1.5 h-1.5 bg-stone-500 rounded-full" />
-                          <span className="text-sm">{feature}</span>
-                        </div>
-                      ))}
-                  </div>
-                </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="grid md:grid-cols-2 gap-12 pt-8 pb-4">
+              <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
+                {item.desc}
+              </p>
+              
+              <div className="flex flex-wrap gap-3 content-start">
+                {item.f.map((feature: string, i: number) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="px-4 py-2 border border-zinc-800 rounded-full text-[10px] uppercase tracking-widest font-mono bg-zinc-900/50 hover:bg-white hover:text-black transition-colors"
+                  >
+                    {feature}
+                  </motion.span>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-20 bg-[#131313] rounded-2xl p-12 text-center border border-white/5">
-          <h2 className="text-white text-3xl md:text-4xl font-light mb-4">
-            {t("ctaTitle")}
-          </h2>
-          <p className="text-[#c0c0c0] mb-8 max-w-xl mx-auto">{t("ctaDesc")}</p>
-          <Link href="/contact">
-            <button className="px-8 py-3 text-[#191919] bg-white rounded-2xl text-sm tracking-wide hover:scale-105 transition-all duration-200">
-              {t("ctaButton")}
-            </button>
-          </Link>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
-export default Services;
+export default function Services() {
+  const t = useTranslations("Services");
+  
+  // Convert the translation object keys into an array for mapping
+  const serviceKeys = ["web", "brand", "ecommerce", "uiux"] as const;
+
+  return (
+    <section className="w-full py-24">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="max-w-2xl">
+          <span className="inline-block px-3 py-1 border border-zinc-800 rounded-full text-[10px] uppercase tracking-[0.2em] mb-6 text-zinc-400">
+            {t("badge")}
+          </span>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tighter mb-8">
+            {t("title")}
+          </h2>
+          <p className="text-xl text-zinc-400 leading-relaxed">
+            {t("description")}
+          </p>
+        </div>
+        
+        {/* CTA Box */}
+        <div className="p-8 bg-zinc-900/30 border border-zinc-800 rounded-2xl max-w-sm">
+          <h4 className="text-lg mb-2">{t("ctaTitle")}</h4>
+          <p className="text-sm text-zinc-500 mb-6">{t("ctaDesc")}</p>
+          <button className="w-full py-3 bg-white text-black rounded-full font-mono text-xs uppercase tracking-widest hover:bg-zinc-200 transition-colors">
+            {t("ctaButton")}
+          </button>
+        </div>
+      </div>
+
+      {/* Services List */}
+      <div className="mt-12">
+        {serviceKeys.map((key, index) => (
+          <ServiceItem 
+            key={key} 
+            id={key} 
+            index={index}
+            item={t.raw(`items.${key}`)} 
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
