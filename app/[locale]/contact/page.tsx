@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Instagram } from "lucide-react";
 
 const Contact = () => {
   const t = useTranslations("Contact");
@@ -62,8 +63,9 @@ const Contact = () => {
             <div className="flex flex-col gap-3">
               <Link
                 href="https://www.instagram.com/hyperjumpweb/"
-                className="text-2xl font-light hover:text-stone-300 transition-colors"
+                className="text-2xl flex  items-center gap-1.5 font-light hover:text-stone-300 transition-colors"
               >
+                <Instagram />
                 Instagram
               </Link>
             </div>
