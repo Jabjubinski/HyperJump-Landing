@@ -31,7 +31,7 @@ export default function ClientLayout({
         {isLoading && <Preloader key="loader" />}
       </AnimatePresence>
 
-      {/* <Cursor /> */}
+      <Cursor />
 
       <div className="noise-overlay" />
       <ContactCapsule />
