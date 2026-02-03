@@ -12,9 +12,20 @@ const Hero = () => {
 
   useEffect(() => {
     const handleResize = () => setIsPhone(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    let timeoutId: NodeJS.Timeout | undefined;
+    const debouncedResize = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleResize, 150);
+    };
+
+    handleResize(); // Initial call
+    window.addEventListener("resize", debouncedResize);
+
+    return () => {
+      window.removeEventListener("resize", debouncedResize);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (

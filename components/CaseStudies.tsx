@@ -149,7 +149,7 @@ const CaseStudies = () => {
                     fill
                     alt="Preview"
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                    unoptimized
+                    sizes="33vw"
                   />
                   <div className="absolute bottom-6 left-6 right-6 p-4 backdrop-blur-md bg-black/40 border border-white/10 rounded-lg">
                     <p className="text-white text-[10px] font-mono uppercase tracking-widest">

@@ -8,7 +8,6 @@ import ScrollVelocity from "@/components/ScrollVelocity";
 
 //intl
 import { useTranslations } from "next-intl";
-import StatusNotice from "@/components/StatusNotice";
 
 export default function Home() {
   const scrollT = useTranslations("Marquee");
@@ -16,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="text-white overflow-x-hidden">
-      <StatusNotice />
+      {/* <StatusNotice /> */}
 
       <section id="home" className="relative h-dvh w-full">
         <Hero />

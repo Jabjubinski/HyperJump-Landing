@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Playfair_Display,
+  Space_Grotesk,
+  Noto_Serif_Georgian,
+} from "next/font/google";
 import "../../app/globals.css";
 import Header from "@/components/Header";
-import { ReactLenis } from "@/utils/lenis";
-import { Playfair_Display } from "next/font/google";
-import { Space_Grotesk } from "next/font/google";
-import { Noto_Serif_Georgian } from "next/font/google";
 import Footer from "@/components/footer";
-
-// next-intl
+import { ReactLenis } from "@/utils/lenis";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "../i18n/routing";
 import { notFound } from "next/navigation";
+import Cursor from "@/components/Cursor";
 
+// Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,32 +27,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const Playfair = Playfair_Display({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  variable: "--font-playfair",
 });
+
 const space = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal"],
-  variable: "--font-space-grotesk",
+  variable: "--font-space",
 });
 
 const notoSans = Noto_Serif_Georgian({
   subsets: ["latin"],
-
-  display: "swap",
-  variable: "--font-noto-sans",
+  variable: "--font-noto-serif",
 });
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export const metadata: Metadata = {
-  title: "HyperJump - Webdev agency",
-  description: "HyperJump - Webdev agency",
+  title: "HyperJump | Digital Experience Agency",
+  description:
+    "HyperJump is a web development agency crafting immersive digital experiences.",
 };
 
 export default async function RootLayout({
@@ -67,14 +65,16 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${Playfair.className}`}>
-      <body
-        className={`${geistSans.variable} ${notoSans.variable} ${geistMono.variable} ${Playfair.variable} ${space.variable} antialiased selection:bg-stone-200`}
-      >
+    <html
+      lang={locale}
+      className={`${playfair.variable} ${space.variable} ${geistSans.variable} ${geistMono.variable} ${notoSans.variable}`}
+    >
+      <body className="font-sans antialiased bg-[#0a0a0a] text-white selection:bg-white selection:text-black">
         <ReactLenis root>
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <Cursor/>
             <Header />
-            {children}
+            <main className="relative z-10">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </ReactLenis>
