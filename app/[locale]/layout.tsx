@@ -32,9 +32,9 @@ const Playfair = Playfair_Display({
 });
 const space = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal"],
-  variable: "--font-instrument-serif",
+  variable: "--font-space-grotesk",
 });
 
 const notoSans = Noto_Serif_Georgian({

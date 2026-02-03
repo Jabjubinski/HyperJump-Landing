@@ -36,7 +36,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="absolute right-0 top-0 h-full w-[45%] bg-white/[0.01] -skew-x-12 translate-x-20 border-l border-white/5 hidden md:block" />
+      <div className="absolute right-0 top-0 h-full w-[45%] bg-white/1 -skew-x-12 translate-x-20 border-l border-white/5 hidden md:block" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:grid md:grid-cols-12 gap-10 md:gap-4 items-center">
