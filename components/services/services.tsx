@@ -3,8 +3,17 @@
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
-const ServiceItem = ({ id, item, index }: { id: string, item: any, index: number }) => {
+const ServiceItem = ({
+  id,
+  item,
+  index,
+}: {
+  id: string;
+  item: any;
+  index: number;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,9 +29,9 @@ const ServiceItem = ({ id, item, index }: { id: string, item: any, index: number
             {item.title}
           </h3>
         </div>
-        
+
         {/* Modern Arrow Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           className="hidden md:block text-3xl font-thin text-zinc-500"
         >
@@ -43,7 +52,7 @@ const ServiceItem = ({ id, item, index }: { id: string, item: any, index: number
               <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
                 {item.desc}
               </p>
-              
+
               <div className="flex flex-wrap gap-3 content-start">
                 {item.f.map((feature: string, i: number) => (
                   <motion.span
@@ -67,7 +76,7 @@ const ServiceItem = ({ id, item, index }: { id: string, item: any, index: number
 
 export default function Services() {
   const t = useTranslations("Services");
-  
+
   // Convert the translation object keys into an array for mapping
   const serviceKeys = ["web", "brand", "ecommerce", "uiux"] as const;
 
@@ -86,25 +95,27 @@ export default function Services() {
             {t("description")}
           </p>
         </div>
-        
+
         {/* CTA Box */}
         <div className="p-8 bg-zinc-900/30 border border-zinc-800 rounded-2xl max-w-sm">
           <h4 className="text-lg mb-2">{t("ctaTitle")}</h4>
           <p className="text-sm text-zinc-500 mb-6">{t("ctaDesc")}</p>
-          <button className="w-full py-3 bg-white text-black rounded-full font-mono text-xs uppercase tracking-widest hover:bg-zinc-200 transition-colors">
-            {t("ctaButton")}
-          </button>
+          <Link href="/contact">
+            <button className="w-full py-3 bg-white text-black rounded-full font-mono text-xs uppercase tracking-widest hover:bg-zinc-200 transition-colors">
+              {t("ctaButton")}
+            </button>
+          </Link>
         </div>
       </div>
 
       {/* Services List */}
       <div className="mt-12">
         {serviceKeys.map((key, index) => (
-          <ServiceItem 
-            key={key} 
-            id={key} 
+          <ServiceItem
+            key={key}
+            id={key}
             index={index}
-            item={t.raw(`items.${key}`)} 
+            item={t.raw(`items.${key}`)}
           />
         ))}
       </div>
