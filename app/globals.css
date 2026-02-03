@@ -164,13 +164,13 @@ body {
 :root {
   --fluid-leading: 0.85;
   --fluid-tracking: -0.02em;
-  --fluid-size-sub: 1.5rem;
+  --fluid-size-sub: 1.125rem;
 }
 
 html[lang="ka"] {
-  --fluid-leading: 1.25;
+  --fluid-leading: 1.2;
   --fluid-tracking: 0.01em;
-  --fluid-size-sub: 1.125rem;
+  --fluid-size-sub: 1rem;
 }
 
 .hero-header {
@@ -180,9 +180,13 @@ html[lang="ka"] {
 
 .hero-sub {
   font-size: var(--fluid-size-sub);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 html[lang="ka"] .hero-header {
   text-transform: none !important;
+}
+
+@utility slant-r {
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }

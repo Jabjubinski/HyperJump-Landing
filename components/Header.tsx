@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Link } from "../app/i18n/routing"; 
+import { Link } from "../app/i18n/routing";
+import Image from "next/image"; // Import Next.js Image component
 import {
   motion,
   AnimatePresence,
@@ -12,6 +13,8 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+import logo from "../public/logos/logo.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -26,7 +29,6 @@ const Header = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const t = useTranslations("Navigation");
 
-  // Magnetic Button Logic
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
@@ -46,7 +48,6 @@ const Header = () => {
     mouseY.set(0);
   };
 
-  // Lock scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
@@ -54,25 +55,41 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 flex justify-between items-center z-[100]">
-        {/* Logo Section */}
         <Link
           href="/"
           className={clsx(
-            "group flex text-xl md:text-2xl font-(family-name:--font-instrument-serif) italic transition-colors duration-500",
+            "group flex items-center gap-3 text-xl md:text-2xl font-(family-name:--font-instrument-serif) italic transition-colors duration-500",
             isOpen ? "text-white" : "text-zinc-200",
           )}
         >
-          {"HyperJump".split("").map((char, i) => (
-            <span
-              key={i}
-              className="relative group-hover:-translate-y-1 transition-transform duration-300"
-            >
-              {char}
-            </span>
-          ))}
+          <div className="relative w-8 h-8 md:w-15 md:h-15 overflow-hidden transition-transform duration-500 group-hover:scale-110">
+            <Image
+              src={logo}
+              alt="HyperJump Logo"
+              fill
+              className={clsx(
+                "transition-all duration-500",
+                isOpen
+                  ? "brightness-100"
+                  : "brightness-90 group-hover:brightness-125",
+              )}
+              priority
+            />
+          </div>
+
+          <div className="flex">
+            {"HyperJump".split("").map((char, i) => (
+              <span
+                key={i}
+                className="relative group-hover:-translate-y-0.5 transition-transform duration-300"
+                style={{ transitionDelay: `${i * 30}ms` }}
+              >
+                {char}
+              </span>
+            ))}
+          </div>
         </Link>
 
-        {/* Interaction Hub: Switcher + Menu Button */}
         <div className="flex items-center gap-4 md:gap-6">
           <AnimatePresence>
             {!isOpen && (
@@ -128,7 +145,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Fullscreen Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -138,7 +154,6 @@ const Header = () => {
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
             className="fixed inset-0 h-dvh z-[90] flex flex-col md:flex-row overflow-hidden bg-black"
           >
-            {/* Sidebar Info */}
             <div className="order-2 backdrop-blur-md md:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
               <div className="text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] space-y-4">
                 <div className="flex justify-between md:block md:space-y-4">
@@ -159,14 +174,11 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Main Links */}
             <div className="order-1 md:order-2 bg-black w-full md:w-2/3 flex items-center justify-center md:justify-start p-8 md:pl-20 h-full">
               <ul className="flex flex-col gap-2 md:gap-4">
                 {navLinks.map((link, idx) => {
                   const nameLower = link.name.toLowerCase();
                   const translatedName = t(nameLower);
-
-                  // Routing Logic
                   const isPageRoute = ["about", "contact"].includes(nameLower);
                   const finalHref = isPageRoute
                     ? link.href
