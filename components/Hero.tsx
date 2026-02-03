@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 import Link from "next/link";
-
 import LightPillar from "./LightPillar";
 import { useTranslations } from "next-intl";
 
@@ -20,17 +19,12 @@ const Hero = () => {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!buttonRef.current) return;
-
     const { clientX, clientY } = e;
-    const { left, top, width, height } =
-      buttonRef.current.getBoundingClientRect();
-
+    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
     const centerX = left + width / 2;
     const centerY = top + height / 2;
-
     const dx = clientX - centerX;
     const dy = clientY - centerY;
-
     x.set(dx * 0.35);
     y.set(dy * 0.35);
   };
@@ -39,6 +33,19 @@ const Hero = () => {
     x.set(0);
     y.set(0);
   };
+
+  function useIsPhone() {
+    const [isPhone, setIsPhone] = useState(false);
+    useEffect(() => {
+      const handleResize = () => setIsPhone(window.innerWidth < 768);
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return isPhone;
+  }
+
+  const isPhone = useIsPhone();
 
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden bg-black">
@@ -55,14 +62,11 @@ const Hero = () => {
           pillarRotation={25}
           interactive={false}
           mixBlendMode="screen"
-          quality="high"
+          quality={isPhone ? "medium" : "high"}
         />
       </div>
 
-      <div
-        className="absolute inset-0 z-[5] pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#0f0f0f]"
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 z-5 pointer-events-none bg-linear-to-b from-transparent via-transparent to-[#0f0f0f]" aria-hidden="true" />
 
       <div className="relative z-10 w-full flex flex-col justify-center items-center text-center px-6 h-dvh">
         <motion.div
@@ -71,20 +75,17 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          {/* Badge */}
           <h1 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-zinc-300 mb-8 border border-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
             {t("badge")}
           </h1>
 
-          {/* Headline */}
-          <p className="text-white text-5xl md:text-7xl lg:text-9xl leading-[0.85] tracking-tight font-bold uppercase">
+          <p className="text-white text-5xl md:text-7xl lg:text-9xl font-bold uppercase hero-header">
             {t("titleMain")} <br />
-            <span className="text-xl md:text-2xl tracking-wide font-normal block mt-6 max-w-2xl mx-auto normal-case">
+            <span className="tracking-wide font-normal block mt-6 max-w-2xl mx-auto normal-case hero-sub">
               {t("titleSub")}
             </span>
           </p>
 
-          {/* Magnetic Button Container */}
           <Link
             href="/contact"
             className="relative mt-16 group inline-block"
@@ -105,4 +106,5 @@ const Hero = () => {
     </div>
   );
 };
+
 export default Hero;

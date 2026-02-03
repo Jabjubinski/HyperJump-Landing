@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="text-white overflow-x-hidden">
       {showNotice && (
-        <div className="fixed bottom-8 left-8 z-[100] max-w-sm">
+        <div className="fixed bottom-8 left-8 z-100 max-w-sm">
           <div className="bg-white text-black p-6 rounded-2xl shadow-2xl flex flex-col gap-4 border border-white/20">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-red-500 rounded-full animate-ping" />

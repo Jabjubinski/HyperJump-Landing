@@ -161,6 +161,28 @@ body {
   }
 }
 
-html[lang="ka"] body {
-  font-family: var(--font-noto-sans), sans-serif;
+:root {
+  --fluid-leading: 0.85;
+  --fluid-tracking: -0.02em;
+  --fluid-size-sub: 1.5rem;
+}
+
+html[lang="ka"] {
+  --fluid-leading: 1.25;
+  --fluid-tracking: 0.01em;
+  --fluid-size-sub: 1.125rem;
+}
+
+.hero-header {
+  line-height: var(--fluid-leading);
+  letter-spacing: var(--fluid-tracking);
+}
+
+.hero-sub {
+  font-size: var(--fluid-size-sub);
+  line-height: 1.5;
+}
+
+html[lang="ka"] .hero-header {
+  text-transform: none !important;
 }

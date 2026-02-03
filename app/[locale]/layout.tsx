@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import { ReactLenis } from "@/utils/lenis";
 import { Playfair_Display } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Serif_Georgian } from "next/font/google";
 import Footer from "@/components/footer";
 
 // next-intl
@@ -37,9 +37,9 @@ const space = Space_Grotesk({
   variable: "--font-instrument-serif",
 });
 
-const notoSans = Noto_Sans({
-  weight: ["400", "500", "700"],
+const notoSans = Noto_Serif_Georgian({
   subsets: ["latin"],
+
   display: "swap",
   variable: "--font-noto-sans",
 });
