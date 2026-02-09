@@ -24,7 +24,7 @@ export default function Preloader() {
       initial={{ y: 0 }}
       exit={{ y: "-100%" }}
       transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0a0a0a]"
+      className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#0a0a0a]"
     >
       <div className="relative w-full max-w-4xl px-10">
         <svg
@@ -72,7 +72,7 @@ export default function Preloader() {
         </svg>
 
         {/* Technical Footer */}
-        <div className="mt-12 flex justify-between items-end w-full max-w-[800px] mx-auto font-mono">
+        <div className="mt-12 flex justify-between items-end w-full max-w-200 mx-auto font-mono">
           <div className="flex flex-col gap-1">
             <span className="text-[10px] text-zinc-500 tracking-[0.4em] uppercase">
               Engine Status

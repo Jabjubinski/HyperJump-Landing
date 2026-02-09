@@ -61,15 +61,15 @@ const Footer = () => {
               {t("legal")}
             </span>
             <ul className="flex flex-col gap-3 text-sm text-[#c0c0c0]">
-              <li className="hover:text-white transition-colors cursor-pointer w-fit">
+              <a href="/" className="hover:text-white transition-colors cursor-pointer w-fit">
                 {t("links.privacy")}
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer w-fit">
+              </a>
+              <a href="/" className="hover:text-white transition-colors cursor-pointer w-fit">
                 {t("links.terms")}
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer w-fit">
+              </a>
+              <a href="/" className="hover:text-white transition-colors cursor-pointer w-fit">
                 {t("links.cookies")}
-              </li>
+              </a>
             </ul>
           </div>
         </div>

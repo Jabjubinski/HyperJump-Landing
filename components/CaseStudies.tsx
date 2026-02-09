@@ -30,12 +30,11 @@ const CaseStudies = () => {
     },
     {
       id: "Cafe",
-      title: "Cafe",
-      category: "Restaurants",
+      title: t("cafeTitle"),
+      category: t("cafeCategory"),
       year: "2026",
-      image:
-        "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      description: t("verveDesc"),
+      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591...",
+      description: t("cafeDesc"),
       url: "https://cafe-hyperjump.vercel.app/",
     },
   ];
@@ -54,9 +53,8 @@ const CaseStudies = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <section className="max-w-7xl sm:mx-auto sm:px-6 py-24 md:py-32">
       <div className="flex flex-col md:flex-row gap-20 items-start">
-        {/* Left Side: Strategic Copy */}
         <div className="md:w-1/3 md:sticky md:top-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +65,7 @@ const CaseStudies = () => {
               {t("badge")}
             </span>
             <h2
-              className="text-6xl lg:text-7xl font-(family-name:--font-instrument-serif) italic leading-[0.9] mb-8"
+              className="text-5xl lg:text-6xl xl:text-7xl font-(family-name:--font-instrument-serif) italic leading-[0.9] mb-8"
               dangerouslySetInnerHTML={{ __html: t.raw("title") }}
             />
             <p className="text-[#c0c0c0] text-lg leading-relaxed max-w-sm">

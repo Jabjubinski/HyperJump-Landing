@@ -25,7 +25,7 @@ const ServiceItem = ({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <span className="font-mono text-xs text-zinc-500">0{index + 1}</span>
-          <h3 className="text-4xl md:text-6xl font-light tracking-tighter group-hover:translate-x-4 transition-transform duration-500">
+          <h3 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tighter group-hover:translate-x-4 transition-transform duration-500">
             {item.title}
           </h3>
         </div>
@@ -88,7 +88,7 @@ export default function Services() {
           <span className="inline-block px-3 py-1 border border-zinc-800 rounded-full text-[10px] uppercase tracking-[0.2em] mb-6 text-zinc-400">
             {t("badge")}
           </span>
-          <h2 className="text-6xl md:text-8xl font-medium tracking-tighter mb-8">
+          <h2 className="text-5xl md:text-6xl lg:text-8xl font-medium tracking-tighter mb-8">
             {t("title")}
           </h2>
           <p className="text-xl text-zinc-400 leading-relaxed">
@@ -97,7 +97,7 @@ export default function Services() {
         </div>
 
         {/* CTA Box */}
-        <div className="p-8 bg-zinc-900/30 border border-zinc-800 rounded-2xl max-w-sm">
+        <div className="p-8 mx-auto bg-zinc-900/30 border border-zinc-800 rounded-2xl max-w-sm">
           <h4 className="text-lg mb-2">{t("ctaTitle")}</h4>
           <p className="text-sm text-zinc-500 mb-6">{t("ctaDesc")}</p>
           <Link href="/contact">

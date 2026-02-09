@@ -16,7 +16,7 @@ export default function AboutLab() {
       <div ref={constraintsRef} className="relative w-full h-full max-w-6xl mx-auto flex items-center justify-center">
         
         {/* Central Brand Statement */}
-        <h2 className="absolute text-[15vw] font-bold text-white/[0.03] pointer-events-none select-none tracking-tighter uppercase">
+        <h2 className="absolute text-[15vw] font-bold text-white/3 pointer-events-none select-none tracking-tighter uppercase">
           Momentum
         </h2>
 

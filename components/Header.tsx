@@ -54,7 +54,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 flex justify-between items-center z-[100]">
+      <header className="fixed top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 flex justify-between items-center z-100">
         <Link
           href="/"
           className={clsx(
@@ -113,7 +113,7 @@ const Header = () => {
               style={{ x: springX, y: springY }}
               onClick={() => setIsOpen(!isOpen)}
               className={clsx(
-                "relative z-[110] w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
+                "relative z-110 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-md border",
                 isOpen
                   ? "bg-white border-white text-black rotate-90"
                   : "bg-white/10 border-white/20 text-white",
@@ -152,9 +152,9 @@ const Header = () => {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 h-dvh z-[90] flex flex-col md:flex-row overflow-hidden bg-black"
+            className="fixed inset-0 h-dvh z-90 flex flex-col lg:flex-row overflow-hidden bg-black"
           >
-            <div className="order-2 backdrop-blur-md md:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
+            <div className="order-2 backdrop-blur-md lg:order-1 flex w-full md:w-1/3 border-t md:border-t-0 md:border-r border-white/5 flex-col justify-end p-8 md:p-20">
               <div className="text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] space-y-4">
                 <div className="flex justify-between md:block md:space-y-4">
                   <p>{t("location")}</p>
@@ -174,8 +174,8 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="order-1 md:order-2 bg-black w-full md:w-2/3 flex items-center justify-center md:justify-start p-8 md:pl-20 h-full">
-              <ul className="flex flex-col gap-2 md:gap-4">
+            <div className="order-1 lg:order-2 bg-black w-full md:w-2/3 flex items-center justify-center md:justify-start md:pt-25 p-8 md:pl-20 h-full">
+              <ul className="flex flex-col gap-4 md:gap-5">
                 {navLinks.map((link, idx) => {
                   const nameLower = link.name.toLowerCase();
                   const translatedName = t(nameLower);
@@ -200,7 +200,7 @@ const Header = () => {
                       <Link
                         href={finalHref}
                         onClick={() => setIsOpen(false)}
-                        className="group flex items-baseline gap-4 md:gap-6 text-5xl sm:text-7xl md:text-8xl text-white font-(family-name:--font-instrument-serif) italic hover:translate-x-2 md:hover:translate-x-0 md:hover:pl-8 transition-all duration-500"
+                        className="group flex items-baseline gap-4 md:gap-6 text-4xl sm:text-7xl lg:text-8xl text-white font-(family-name:--font-instrument-serif) italic hover:translate-x-2 md:hover:translate-x-0 md:hover:pl-8 transition-all duration-500"
                       >
                         <span className="text-[10px] md:text-xs font-mono text-zinc-600 group-hover:text-zinc-400 transition-colors">
                           0{idx + 1}

@@ -72,7 +72,7 @@ const Hero = () => {
 
               <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
                 <Link
-                  href="/work"
+                  href="/contact"
                   className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-6 py-3 text-black transition-all hover:bg-zinc-200"
                 >
                   <span className="text-[11px] font-bold uppercase tracking-widest">
@@ -111,9 +111,9 @@ const Hero = () => {
             >
               <Link
                 href="/contact"
-                className="group relative flex h-36 w-36 lg:h-52 lg:w-52 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-xl transition-all hover:bg-white"
+                className="group relative flex h-36 w-36 lg:h-52 lg:w-52 items-center justify-center rounded-full border border-white/10 bg-white/2 backdrop-blur-xl transition-all hover:bg-white"
               >
-                <div className="absolute inset-1.5 rounded-full border border-dashed border-white/20 group-hover:border-black/10 animate-[spin_40s_linear_infinite]" />
+                <div className="absolute inset-1.5 rounded-full border border-dashed border-white/20 group-hover:border-black animate-[spin_40s_linear_infinite]" />
 
                 <div className="text-center group-hover:text-black transition-colors duration-500">
                   <p className="text-[8px] uppercase tracking-[0.4em] font-bold mb-0.5 opacity-50">
@@ -124,15 +124,15 @@ const Hero = () => {
                   </h2>
                 </div>
 
-                <div className="absolute -top-1 -right-1 h-6 w-6 border-t border-r border-white/20 group-hover:border-black/20" />
-                <div className="absolute -bottom-1 -left-1 h-6 w-6 border-b border-l border-white/20 group-hover:border-black/20" />
+                <div className="absolute -top-1 -right-1 h-6 w-6 border-t border-r border-white/20 group-hover:h-10 group-hover:w-10 transition-all duration-400" />
+                <div className="absolute -bottom-1 -left-1 h-6 w-6 border-b border-l border-white/20 group-hover:h-10 group-hover:w-10 transition-all duration-400 " />
               </Link>
             </motion.div>
           </div>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0a0a0a] pointer-events-none" />
     </section>
   );
 };

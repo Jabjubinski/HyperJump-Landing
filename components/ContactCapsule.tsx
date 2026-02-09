@@ -13,7 +13,7 @@ export default function ContactCapsule() {
 
   return (
     <>
-      <div className="fixed bottom-8 right-8 z-[90]">
+      <div className="fixed bottom-8 right-8 z-90">
         <MagneticButton>
           <motion.button
             onClick={() => setIsOpen(true)}
@@ -28,7 +28,7 @@ export default function ContactCapsule() {
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[120] flex items-center justify-end">
+          <div className="fixed inset-0 z-120 flex items-center justify-end">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
