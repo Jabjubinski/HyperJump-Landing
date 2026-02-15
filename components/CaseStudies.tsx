@@ -33,7 +33,8 @@ const CaseStudies = () => {
       title: t("cafeTitle"),
       category: t("cafeCategory"),
       year: "2026",
-      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591...",
+      image:
+        "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
       description: t("cafeDesc"),
       url: "https://cafe-hyperjump.vercel.app/",
     },
@@ -143,6 +144,7 @@ const CaseStudies = () => {
               >
                 <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl bg-zinc-900">
                   <Image
+                    key={projects[hoveredIndex].id}
                     src={projects[hoveredIndex].image}
                     fill
                     alt="Preview"
